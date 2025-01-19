@@ -1,6 +1,1 @@
-langchain
-langchain_community
-openai
-twilio
-PyPDF2
 Flask
