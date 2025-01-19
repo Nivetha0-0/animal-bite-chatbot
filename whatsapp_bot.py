@@ -1,10 +1,11 @@
-# whatsapp_bot.py
+
 
 import os
 from twilio.rest import Client
-from langchain import OpenAI
-from langchain.document_loaders import PyPDFLoader
-from langchain.chains import ConversationalChain
+from langchain_community.llms import OpenAI  # Updated import
+from langchain_community.document_loaders import PyPDFLoader  # Updated import
+from langchain_community.chains import ConversationalChain  # Updated import
+from flask import Flask, request, jsonify
 
 # Load PDF and create a knowledge base
 def load_pdf(pdf_path):
@@ -28,8 +29,6 @@ def handle_message(incoming_msg):
     return response
 
 # Twilio webhook endpoint
-from flask import Flask, request, jsonify
-
 app = Flask(__name__)
 
 @app.route("/whatsapp", methods=["POST"])
